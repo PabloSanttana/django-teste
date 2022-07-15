@@ -1,0 +1,26 @@
+{% extends 'global/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Perfil{% endblock title %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'monitoring/css/styles.css' %}" type="text/css">
+{% endblock css %}
+{% block content %}
+<div class="container pt-4 bg-white  mt-5 rounded p-5 card">
+    <h1 class="card-title text-color-primary strong">Perfil</h1>
+    
+    <form class="login bg-white card-body" method="POST" action="{% url 'profile:profile_validation' %}">
+        {% csrf_token %}
+        {{form|crispy }}
+    <button id="submit" class="btn btn-primary px-5" type="submit">Próximo</button> 
+    </form>
+</div>
+{% endblock content %}
+
+{% block javascript %}
+<script>
+ 
+
+</script>
+
+{% endblock javascript %}

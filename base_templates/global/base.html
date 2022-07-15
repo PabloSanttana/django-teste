@@ -17,41 +17,44 @@
       href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@900&family=Roboto:wght@400;900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="{% static 'global/css/styles.css' %}" />
+    
     {% block css %}{% endblock css %}
-    <title>{% block title %}{% endblock title %}</title>
+    <link rel="stylesheet" href="{% static 'global/css/styles.css' %}" />
+    <title>Anjo | {% block title %}{% endblock title %}</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light bg-navbar">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light bg-navbar py-3">
       <div class="container">
-        <a class="navbar-brand" href="#">LOGO</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarTogglerDemo02"
-          aria-controls="navbarTogglerDemo02"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+        <a class="navbar-brand" href="#">AnjoPraELA</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-          <ul class="navbar-nav mr-auto mt-2 mt-lg-0"></ul>
-          <ul class="navbar-nav my-2 my-lg-0">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-          </ul>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            {% if user.is_authenticated %}
+                <li class="nav-item active">
+                  <a class="nav-link" href="{% url 'account_email' %}">Trocar email</a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link"href="{% url 'account_logout' %}">Sair</a>
+                </li>
+            {% else %}
+                <li class="nav-item active">
+                  <a class="nav-link" href="{% url 'account_login' %}">Acessar</a>
+                </li>
+            {% endif %}
+         
         </div>
       </div>
+     
     </nav>
 
-    {% block content %}{% endblock content %}
+    <main>
+      {% block content %}{% endblock content %}
+    </main>
+   
     <script
       src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
       integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

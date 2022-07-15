@@ -4,31 +4,36 @@
     --color-white: #fff;
     --color-black: #000;
     --color-dark-text: #686868;
-    --font-primary:'Roboto', sans-serif;
+    --font-primary: 'Roboto', sans-serif;
 
     --spacing-gutter-medium: 3rem;
     --spacing-gutter-large: 4rem;
     --text-color-primary: #254575;
 }
+
 * {
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
     font-family: var(--font-primary);
-    
+
 }
 
 
-.bg-navbar{
+.bg-navbar {
     background-color: var(--color-white);
-    box-shadow:0px 6px 17px -10px var(--color-dark-text) !important;
-    height: 70px;
+    box-shadow: 0px 6px 17px -10px var(--color-dark-text) !important;
     font-weight: bold;
 }
+
 .bg-navbar a {
     color: var(--text-color-primary) !important;
 }
 
-main{
-   
+.text-color-primary {
+    color: var(--text-color-primary)
+}
+
+.strong {
+    font-weight: bold;
 }
